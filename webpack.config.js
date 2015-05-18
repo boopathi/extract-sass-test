@@ -23,6 +23,8 @@ module.exports = {
     ]
   },
   plugins: [
-    new Extract('bundle.css')
+    new Extract('bundle.css', {
+      allChunks: true
+    })
   ]
 };
