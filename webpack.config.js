@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var Extract = require('extract-text-webpack-plugin');
 var LocalScope = require('postcss-local-scope');
+var path = require('path');
+var echoLoader = path.join(__dirname, 'echo-loader');
 
 module.exports = {
   entry: {
@@ -17,7 +19,11 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: Extract.extract(
-          'css!postcss!sass?sourceMap'
+          'css' +
+          '!' + echoLoader +
+          '!postcss'+
+          '!' + echoLoader +
+          '!sass?sourceMap'
         )
       }
     ]
