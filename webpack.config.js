@@ -23,7 +23,8 @@ module.exports = {
         loader: Extract.extract(
           'css?sourceMap' +
           // '!' + echoLoader +
-          '!' + postcssLoader +
+          '!postcss' +
+          // '!' + postcssLoader +
           // '!' + echoLoader +
           '!' + sassLoader
         )
