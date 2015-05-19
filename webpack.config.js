@@ -4,6 +4,7 @@ var LocalScope = require('postcss-local-scope');
 var path = require('path');
 var echoLoader = path.join(__dirname, 'echo-loader');
 var sassLoader = path.join(__dirname, 'sass-loader');
+var postcssLoader = path.join(__dirname, 'postcss-loader');
 
 module.exports = {
   entry: {
@@ -20,12 +21,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: Extract.extract(
-          echoLoader +
-          '!css?sourceMap' +
-          '!' + echoLoader +
-          '!postcss'+
-          '!' + echoLoader +
-          // '!sass?sourceMap'
+          'css?sourceMap' +
+          // '!' + echoLoader +
+          '!' + postcssLoader +
+          // '!' + echoLoader +
           '!' + sassLoader
         )
       }
