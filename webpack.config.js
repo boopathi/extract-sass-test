@@ -14,19 +14,19 @@ module.exports = {
     path: 'public',
     filename: 'bundle.js'
   },
-  devtool: '#source-map',
+  devtool: 'sourcemap',
   postcss: [ LocalScope ],
   module: {
     loaders: [
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         loader: Extract.extract(
-          'css?sourceMap' +
+          'css?sourceMap'
           // '!' + echoLoader +
-          '!postcss' +
+          + '!postcss'
           // '!' + postcssLoader +
           // '!' + echoLoader +
-          '!' + sassLoader
+          + '!' + sassLoader
         )
       }
     ]

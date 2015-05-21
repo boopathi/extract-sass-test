@@ -10,5 +10,8 @@ module.exports = function(source, map) {
   };
 
   var result = sass.renderSync(renderOpts);
-  this.async()(null, result.css.toString(), result.map.toString());
+  // var rmap = JSON.parse(result.map.toString());
+  // rmap.sources = [ '../styles.scss' ];
+  // this.async()(null, result.css.toString(), JSON.stringify(rmap));
+  this.async()(null, result.css, result.map);
 }
